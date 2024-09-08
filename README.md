@@ -1,5 +1,7 @@
 # 【すぐに運用可能】Next.js と MicroCMS で技術ブログを作ろう
 
+![](https://res.cloudinary.com/dhaciqd0v/image/upload/v1725784327/LINE/tssymzurjpvz0iiyfkd9.png)
+
 ## 解説記事
 
 https://zenn.dev/hathle/books/next-microcms-blog-book
