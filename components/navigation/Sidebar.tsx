@@ -14,16 +14,15 @@ import {
 
 // サイドバーのデータを取得する関数
 const fetchSidebarData = async (): Promise<SidebarData> => {
-  const allBlogs = await microcms.getList<BlogType>({
+  const allBlogs = await microcms.getAllContents<BlogType>({
     endpoint: "blog",
     queries: {
       orders: "-publishedAt",
-      limit: 1000,
     },
   })
 
   // 最新の5件を取得
-  const latestBlogs = allBlogs.contents.slice(0, 5)
+  const latestBlogs = allBlogs.slice(0, 5)
 
   // アーカイブの年月を取得
   const extractArchiveMonths = (blogs: BlogType[]): ArchiveMonthType[] => {
@@ -54,8 +53,8 @@ const fetchSidebarData = async (): Promise<SidebarData> => {
 
   return {
     latestBlogs,
-    archiveMonths: extractArchiveMonths(allBlogs.contents),
-    categoryCounts: extractCategoryCounts(allBlogs.contents),
+    archiveMonths: extractArchiveMonths(allBlogs),
+    categoryCounts: extractCategoryCounts(allBlogs),
   }
 }
 
